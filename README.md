@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+# Bookstore Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![alt text](preview.png)
+![alt text](preview-mobile.png)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A React-based application for managing user profiles and browsing books. Features include a searchable book list, a shopping cart with stock management, and a profile page where users can update their personal details.
 
-## Expanding the ESLint configuration
+## Structure/Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Components: Reusable UI elements like Navbar and Sidebar.
+Pages: BooksPage for browsing books and ProfilePage for user management.
+Context: UserContext for user data and CartContext for shopping cart state.
+Styling: Material-UI for dynamic, responsive, and accessible designs.
 
-- Configure the top-level `parserOptions` property like this:
+## Technical Choices
+
+React Context API: Simplified global state management for users and the cart.
+React Router: Enables client-side routing for seamless navigation between pages.
+Vite: Chosen for its fast development server and optimized build process, ensuring a better developer experience and quick reloads.
+Material-UI: Provides prebuilt components for a consistent design system.
+TypeScript: Ensures type safety and scalability.
+
+## Trade-offs and Future Enhancements
+
+Backend Integration: Currently uses mock data; a real backend would enable persistence and real-time updates.
+Error Handling: Basic error feedback; could be improved with centralized notifications.
+Testing: Limited tests; adding unit and integration tests would increase reliability.
+Advanced Features: Accessibility enhancements, better animations, and performance optimization could improve user experience.
+
+With more time, backend integration, comprehensive testing, and advanced error handling would make this application production-ready.
+
+Run project on local:
 
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+pnpm run dev
 ```
